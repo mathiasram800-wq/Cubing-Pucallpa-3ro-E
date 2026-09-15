@@ -3,217 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cubing 3ro "E"</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#080b12;
+  color:#fff;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #09090b;
-    color: white;
+header{
+  background:linear-gradient(135deg,#111827,#1e293b);
+  padding:28px 16px;
+  text-align:center;
+  border-bottom:1px solid #263244;
 }
 
-header {
-    background: linear-gradient(135deg, #111827, #18181b);
-    padding: 25px 18px;
-    text-align: center;
-    border-bottom: 1px solid #27272a;
+header h1{
+  margin:0;
+  font-size:30px;
 }
 
-.logo {
-    font-size: 30px;
-    font-weight: bold;
+header p{
+  color:#94a3b8;
+  margin:8px 0 0;
 }
 
-.logo span {
-    color: #38bdf8;
+nav{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:12px;
+  background:#0d111a;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
-.subtitle {
-    margin-top: 8px;
-    color: #a1a1aa;
+nav button{
+  border:0;
+  background:#182235;
+  color:#fff;
+  padding:11px 15px;
+  border-radius:10px;
+  white-space:nowrap;
+  cursor:pointer;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
-    background: #111113;
-    overflow-x: auto;
+nav button.active{
+  background:#2563eb;
 }
 
-nav button {
-    background: #1f1f23;
-    color: #d4d4d8;
-    border: 1px solid #303038;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    white-space: nowrap;
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:20px 14px 50px;
 }
 
-nav button:hover,
-nav button.active {
-    background: #38bdf8;
-    color: #07111a;
+.section{
+  display:none;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px 15px;
+.section.active{
+  display:block;
 }
 
-.page {
-    display: none;
+.hero{
+  text-align:center;
+  padding:35px 10px;
 }
 
-.page.active {
-    display: block;
+.hero h2{
+  font-size:28px;
+  margin:0 0 10px;
 }
 
-.hero {
-    background: linear-gradient(135deg, #111827, #18181b);
-    border: 1px solid #27272a;
-    border-radius: 18px;
-    padding: 30px 20px;
-    text-align: center;
-    margin-bottom: 25px;
+.hero p{
+  color:#94a3b8;
 }
 
-.hero h1 {
-    font-size: 34px;
-    margin-bottom: 10px;
+.card{
+  background:#111827;
+  border:1px solid #263244;
+  border-radius:16px;
+  padding:18px;
+  margin:15px 0;
 }
 
-.hero p {
-    color: #a1a1aa;
+.card h3{
+  margin-top:0;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    margin-top: 20px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
 }
 
-.card {
-    background: #18181b;
-    border: 1px solid #27272a;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
+.event{
+  background:#151e2e;
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+  border:1px solid #29364b;
 }
 
-.card .icon {
-    font-size: 30px;
-    margin-bottom: 8px;
+.event strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:6px;
 }
 
-.card h3 {
-    font-size: 17px;
+.small{
+  color:#94a3b8;
+  font-size:14px;
 }
 
-.card p {
-    color: #a1a1aa;
-    margin-top: 5px;
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  min-width:600px;
 }
 
-.section-title {
-    margin: 25px 0 15px;
-    font-size: 24px;
+.table-wrap{
+  overflow-x:auto;
 }
 
-.tournament {
-    background: #18181b;
-    border: 1px solid #27272a;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 15px;
+th,td{
+  padding:12px 10px;
+  border-bottom:1px solid #263244;
+  text-align:center;
 }
 
-.tournament h3 {
-    margin-bottom: 8px;
+th{
+  color:#93c5fd;
+  background:#172033;
 }
 
-.tournament p {
-    color: #a1a1aa;
+td:first-child,th:first-child{
+  text-align:left;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    overflow: hidden;
-    border-radius: 12px;
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#172554;
+  color:#93c5fd;
+  font-size:12px;
 }
 
-th {
-    background: #27272a;
-    padding: 12px;
-    text-align: left;
+.participants{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;
 }
 
-td {
-    padding: 12px;
-    border-bottom: 1px solid #27272a;
+.person{
+  background:#151e2e;
+  border:1px solid #29364b;
+  padding:14px;
+  border-radius:12px;
 }
 
-tr:hover {
-    background: #18181b;
+.result-box{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
 }
 
-.record {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #18181b;
-    border: 1px solid #27272a;
-    padding: 17px;
-    border-radius: 12px;
-    margin-bottom: 10px;
+input,select{
+  width:100%;
+  padding:11px;
+  border-radius:9px;
+  border:1px solid #334155;
+  background:#0b1220;
+  color:#fff;
 }
 
-.record strong {
-    color: #38bdf8;
-    font-size: 20px;
+label{
+  display:block;
+  color:#cbd5e1;
+  font-size:13px;
+  margin-bottom:5px;
 }
 
-.badge {
-    background: #27272a;
-    padding: 6px 10px;
-    border-radius: 8px;
-    color: #d4d4d8;
+.btn{
+  border:0;
+  padding:11px 16px;
+  border-radius:9px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+  margin-top:12px;
 }
 
-footer {
-    text-align: center;
-    color: #71717a;
-    padding: 30px 15px;
-    margin-top: 30px;
-    border-top: 1px solid #27272a;
+.btn:hover{
+  background:#1d4ed8;
 }
 
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 27px;
-    }
+.warning{
+  background:#422006;
+  border:1px solid #92400e;
+  color:#fed7aa;
+  padding:13px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
 
-    th, td {
-        padding: 9px;
-        font-size: 14px;
-    }
+footer{
+  text-align:center;
+  padding:25px;
+  color:#64748b;
+  border-top:1px solid #1e293b;
+}
 
-    .record {
-        gap: 10px;
-    }
+@media(max-width:600px){
+  header h1{font-size:24px}
+  .hero h2{font-size:23px}
 }
 </style>
 </head>
@@ -221,229 +232,242 @@ footer {
 <body>
 
 <header>
-    <div class="logo">🧩 <span>Cubing</span> 3ro "E"</div>
-    <div class="subtitle">Resultados y torneos de nuestro salón</div>
+  <h1>🧩 Cubing 3ro "E"</h1>
+  <p>Competencia de speedcubing · Torneo #1</p>
 </header>
 
 <nav>
-    <button class="active" onclick="mostrar('inicio', this)">Inicio</button>
-    <button onclick="mostrar('torneos', this)">🏆 Torneos</button>
-    <button onclick="mostrar('ranking', this)">📊 Ranking</button>
-    <button onclick="mostrar('records', this)">🥇 Récords</button>
+  <button class="active" onclick="showSection('inicio',this)">🏠 Inicio</button>
+  <button onclick="showSection('torneo',this)">🏆 Torneo #1</button>
+  <button onclick="showSection('resultados',this)">⏱️ Resultados</button>
+  <button onclick="showSection('ranking',this)">📊 Ranking</button>
+  <button onclick="showSection('records',this)">🥇 Récords</button>
 </nav>
 
-<div class="container">
+<main>
 
-    <!-- INICIO -->
-    <section id="inicio" class="page active">
+<section id="inicio" class="section active">
 
-        <div class="hero">
-            <h1>🏆 Cubing 3ro "E"</h1>
-            <p>La página oficial de nuestros torneos internos de cubos.</p>
-        </div>
+  <div class="hero">
+    <h2>Bienvenidos a Cubing 3ro "E"</h2>
+    <p>La página oficial de nuestro torneo de cubos de Rubik.</p>
+  </div>
 
-        <h2 class="section-title">🧩 Categorías</h2>
+  <div class="card">
+    <h3>🏆 Torneo #1</h3>
+    <p class="small">
+      Primera competencia de Cubing 3ro "E".
+      Aquí podremos registrar los resultados y rankings.
+    </p>
+  </div>
 
-        <div class="cards">
+  <div class="grid">
 
-            <div class="card">
-                <div class="icon">⬜</div>
-                <h3>3x3</h3>
-                <p>Rubik's Cube</p>
-            </div>
+    <div class="event">
+      <strong>🧊 3x3</strong>
+      <span class="small">Ronda 1 + Final</span>
+    </div>
 
-            <div class="card">
-                <div class="icon">🟦</div>
-                <h3>2x2</h3>
-                <p>Rubik's Cube</p>
-            </div>
+    <div class="event">
+      <strong>🧊 2x2</strong>
+      <span class="small">Final</span>
+    </div>
 
-            <div class="card">
-                <div class="icon">🔺</div>
-                <h3>Pyraminx</h3>
-                <p>Pyraminx</p>
-            </div>
+    <div class="event">
+      <strong>🔺 Pyraminx</strong>
+      <span class="small">Final</span>
+    </div>
 
-            <div class="card">
-                <div class="icon">⏱️</div>
-                <h3>Clock</h3>
-                <p>Rubik's Clock</p>
-            </div>
+    <div class="event">
+      <strong>⏱️ Clock</strong>
+      <span class="small">Final</span>
+    </div>
 
-        </div>
+  </div>
 
-        <h2 class="section-title">👥 Participantes</h2>
+  <div class="card">
+    <h3>👥 Competidores</h3>
 
-        <div class="cards">
+    <div class="participants">
+      <div class="person">🥇 Mathias</div>
+      <div class="person">Walter</div>
+      <div class="person">Jeremias</div>
+      <div class="person">Justin</div>
+      <div class="person">Romel</div>
+      <div class="person">Gabriel</div>
+      <div class="person">Ángel</div>
+    </div>
+  </div>
 
-            <div class="card"><h3>Mathias</h3></div>
-            <div class="card"><h3>Walter</h3></div>
-            <div class="card"><h3>Jeremias</h3></div>
-            <div class="card"><h3>Justin</h3></div>
-            <div class="card"><h3>Romel</h3></div>
-            <div class="card"><h3>Gabriel</h3></div>
-            <div class="card"><h3>Angel</h3></div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TORNEOS -->
-    <section id="torneos" class="page">
-
-        <h1 class="section-title">🏆 Torneos</h1>
-
-        <div class="tournament">
-            <h3>Torneo #1 — Cubing 3ro "E"</h3>
-            <p>📅 Próximamente</p>
-            <p>Eventos: 2x2 · 3x3 · Pyraminx · Clock</p>
-        </div>
-
-        <div class="tournament">
-            <h3>Torneo #2</h3>
-            <p>📅 Próximamente</p>
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- RANKING -->
-    <section id="ranking" class="page">
+<section id="torneo" class="section">
 
-        <h1 class="section-title">📊 Ranking</h1>
+  <div class="hero">
+    <h2>🏆 Torneo #1</h2>
+    <p>Estructura de la competencia</p>
+  </div>
 
-        <div class="tournament">
+  <div class="card">
+    <h3>🧊 3x3</h3>
+    <p><span class="badge">Ronda 1</span> → <span class="badge">Final</span></p>
+    <p class="small">Se registrará Single y Average.</p>
+  </div>
 
-            <h3>Ranking general</h3>
+  <div class="card">
+    <h3>🧊 2x2</h3>
+    <p><span class="badge">Final</span></p>
+    <p class="small">Mathias, Walter, Justin, Romel y Gabriel.</p>
+  </div>
 
-            <table>
+  <div class="card">
+    <h3>🔺 Pyraminx</h3>
+    <p><span class="badge">Final</span></p>
+    <p class="small">Mathias, Walter, Jeremias.</p>
+  </div>
 
-                <tr>
-                    <th>Puesto</th>
-                    <th>Competidor</th>
-                    <th>Puntos</th>
-                </tr>
+  <div class="card">
+    <h3>⏱️ Clock</h3>
+    <p><span class="badge">Final</span></p>
+    <p class="small">Mathias y Walter.</p>
+  </div>
 
-                <tr>
-                    <td>🥇 1</td>
-                    <td>Mathias</td>
-                    <td>0</td>
-                </tr>
-
-                <tr>
-                    <td>🥈 2</td>
-                    <td>Walter</td>
-                    <td>0</td>
-                </tr>
-
-                <tr>
-                    <td>🥉 3</td>
-                    <td>Jeremias</td>
-                    <td>0</td>
-                </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>Justin</td>
-                    <td>0</td>
-                </tr>
-
-                <tr>
-                    <td>5</td>
-                    <td>Romel</td>
-                    <td>0</td>
-                </tr>
-
-                <tr>
-                    <td>6</td>
-                    <td>Gabriel</td>
-                    <td>0</td>
-                </tr>
-
-                <tr>
-                    <td>7</td>
-                    <td>Angel</td>
-                    <td>0</td>
-                </tr>
-
-            </table>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- RECORDS -->
-    <section id="records" class="page">
+<section id="resultados" class="section">
 
-        <h1 class="section-title">🥇 Récords</h1>
+  <div class="hero">
+    <h2>⏱️ Resultados</h2>
+    <p>Registro de resultados del torneo</p>
+  </div>
 
-        <div class="record">
-            <div>
-                <span class="badge">2x2 Single</span>
-                <p>Mejor tiempo</p>
-            </div>
-            <strong>--</strong>
-        </div>
+  <div class="warning">
+    ⚠️ Los resultados que aparecen aquí son de ejemplo. Todavía no se han registrado tiempos oficiales.
+  </div>
 
-        <div class="record">
-            <div>
-                <span class="badge">3x3 Single</span>
-                <p>Mejor tiempo</p>
-            </div>
-            <strong>--</strong>
-        </div>
+  <div class="card">
 
-        <div class="record">
-            <div>
-                <span class="badge">Pyraminx Single</span>
-                <p>Mejor tiempo</p>
-            </div>
-            <strong>--</strong>
-        </div>
+    <h3>Registrar resultado</h3>
 
-        <div class="record">
-            <div>
-                <span class="badge">Clock Single</span>
-                <p>Mejor tiempo</p>
-            </div>
-            <strong>--</strong>
-        </div>
+    <div class="result-box">
 
-    </section>
+      <div>
+        <label>Competidor</label>
+        <select id="competidor">
+          <option>Mathias</option>
+          <option>Walter</option>
+          <option>Jeremias</option>
+          <option>Justin</option>
+          <option>Romel</option>
+          <option>Gabriel</option>
+          <option>Ángel</option>
+        </select>
+      </div>
 
-</div>
+      <div>
+        <label>Categoría</label>
+        <select id="categoria">
+          <option>3x3</option>
+          <option>2x2</option>
+          <option>Pyraminx</option>
+          <option>Clock</option>
+        </select>
+      </div>
 
-<footer>
-    🧩 Cubing 3ro "E" · Torneos internos<br>
-    Hecho para nuestra comunidad de cubing
-</footer>
+      <div>
+        <label>Ronda</label>
+        <select id="ronda">
+          <option>Ronda 1</option>
+          <option>Final</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Tiempo 1</label>
+        <input id="t1" type="number" step="0.01" placeholder="Ej. 8.42">
+      </div>
+
+      <div>
+        <label>Tiempo 2</label>
+        <input id="t2" type="number" step="0.01" placeholder="Ej. 9.15">
+      </div>
+
+      <div>
+        <label>Tiempo 3</label>
+        <input id="t3" type="number" step="0.01" placeholder="Ej. 7.98">
+      </div>
+
+      <div>
+        <label>Tiempo 4</label>
+        <input id="t4" type="number" step="0.01" placeholder="Ej. 8.75">
+      </div>
+
+      <div>
+        <label>Tiempo 5</label>
+        <input id="t5" type="number" step="0.01" placeholder="Ej. 8.61">
+      </div>
+
+    </div>
+
+    <button class="btn" onclick="guardarResultado()">💾 Guardar resultado</button>
+
+  </div>
+
+  <div class="card">
+    <h3>Resultados registrados</h3>
+
+    <div class="table-wrap">
+
+      <table id="tablaResultados">
+
+        <thead>
+          <tr>
+            <th>Competidor</th>
+            <th>Categoría</th>
+            <th>Ronda</th>
+            <th>Single</th>
+            <th>Average</th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+</section>
 
 
-<script>
+<section id="ranking" class="section">
 
-function mostrar(pagina, boton) {
+  <div class="hero">
+    <h2>📊 Ranking</h2>
+    <p>Clasificación general de Cubing 3ro "E"</p>
+  </div>
 
-    document.querySelectorAll('.page').forEach(function(seccion) {
-        seccion.classList.remove('active');
-    });
+  <div class="card">
 
-    document.getElementById(pagina).classList.add('active');
+    <div class="table-wrap">
 
-    document.querySelectorAll('nav button').forEach(function(btn) {
-        btn.classList.remove('active');
-    });
+      <table>
 
-    boton.classList.add('active');
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Competidor</th>
+            <th>Puntos</th>
+          </tr>
+        </thead>
 
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-</script>
-
-</body>
-                      </html>
+        <tbody>
+          <tr><td>1</td><td>Mathias</td><td>0</td></tr>
+          <tr><td>2</td><td>Walter</td><td>0</td></tr>
+          <tr><td>3</td><td>Jeremias</td><td>0</td></tr>
+          <tr><td>4</td><td>Justin</td><td>0</td></tr>
+          <tr><td>5</td><td>Romel</td><td>0</td></tr>
+          <tr><td>6</td><td>Gabriel</td><td>0</td></tr>
+          <tr><td>7</td><td>Ángel</td><
