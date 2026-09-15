@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cubing 3ro "E"</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #09090b;
+    color: white;
+}
+
+header {
+    background: linear-gradient(135deg, #111827, #18181b);
+    padding: 25px 18px;
+    text-align: center;
+    border-bottom: 1px solid #27272a;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #a1a1aa;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: #111113;
+    overflow-x: auto;
+}
+
+nav button {
+    background: #1f1f23;
+    color: #d4d4d8;
+    border: 1px solid #303038;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+nav button:hover,
+nav button.active {
+    background: #38bdf8;
+    color: #07111a;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero {
+    background: linear-gradient(135deg, #111827, #18181b);
+    border: 1px solid #27272a;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #a1a1aa;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card .icon {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.card h3 {
+    font-size: 17px;
+}
+
+.card p {
+    color: #a1a1aa;
+    margin-top: 5px;
+}
+
+.section-title {
+    margin: 25px 0 15px;
+    font-size: 24px;
+}
+
+.tournament {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.tournament h3 {
+    margin-bottom: 8px;
+}
+
+.tournament p {
+    color: #a1a1aa;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+th {
+    background: #27272a;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #27272a;
+}
+
+tr:hover {
+    background: #18181b;
+}
+
+.record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #18181b;
+    border: 1px solid #27272a;
+    padding: 17px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.record strong {
+    color: #38bdf8;
+    font-size: 20px;
+}
+
+.badge {
+    background: #27272a;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: #d4d4d8;
+}
+
+footer {
+    text-align: center;
+    color: #71717a;
+    padding: 30px 15px;
+    margin-top: 30px;
+    border-top: 1px solid #27272a;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    th, td {
+        padding: 9px;
+        font-size: 14px;
+    }
+
+    .record {
+        gap: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🧩 <span>Cubing</span> 3ro "E"</div>
+    <div class="subtitle">Resultados y torneos de nuestro salón</div>
+</header>
+
+<nav>
+    <button class="active" onclick="mostrar('inicio', this)">Inicio</button>
+    <button onclick="mostrar('torneos', this)">🏆 Torneos</button>
+    <button onclick="mostrar('ranking', this)">📊 Ranking</button>
+    <button onclick="mostrar('records', this)">🥇 Récords</button>
+</nav>
+
+<div class="container">
+
+    <!-- INICIO -->
+    <section id="inicio" class="page active">
+
+        <div class="hero">
+            <h1>🏆 Cubing 3ro "E"</h1>
+            <p>La página oficial de nuestros torneos internos de cubos.</p>
+        </div>
+
+        <h2 class="section-title">🧩 Categorías</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">⬜</div>
+                <h3>3x3</h3>
+                <p>Rubik's Cube</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🟦</div>
+                <h3>2x2</h3>
+                <p>Rubik's Cube</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔺</div>
+                <h3>Pyraminx</h3>
+                <p>Pyraminx</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⏱️</div>
+                <h3>Clock</h3>
+                <p>Rubik's Clock</p>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">👥 Participantes</h2>
+
+        <div class="cards">
+
+            <div class="card"><h3>Mathias</h3></div>
+            <div class="card"><h3>Walter</h3></div>
+            <div class="card"><h3>Jeremias</h3></div>
+            <div class="card"><h3>Justin</h3></div>
+            <div class="card"><h3>Romel</h3></div>
+            <div class="card"><h3>Gabriel</h3></div>
+            <div class="card"><h3>Angel</h3></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TORNEOS -->
+    <section id="torneos" class="page">
+
+        <h1 class="section-title">🏆 Torneos</h1>
+
+        <div class="tournament">
+            <h3>Torneo #1 — Cubing 3ro "E"</h3>
+            <p>📅 Próximamente</p>
+            <p>Eventos: 2x2 · 3x3 · Pyraminx · Clock</p>
+        </div>
+
+        <div class="tournament">
+            <h3>Torneo #2</h3>
+            <p>📅 Próximamente</p>
+        </div>
+
+    </section>
+
+
+    <!-- RANKING -->
+    <section id="ranking" class="page">
+
+        <h1 class="section-title">📊 Ranking</h1>
+
+        <div class="tournament">
+
+            <h3>Ranking general</h3>
+
+            <table>
+
+                <tr>
+                    <th>Puesto</th>
+                    <th>Competidor</th>
+                    <th>Puntos</th>
+                </tr>
+
+                <tr>
+                    <td>🥇 1</td>
+                    <td>Mathias</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>🥈 2</td>
+                    <td>Walter</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>🥉 3</td>
+                    <td>Jeremias</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Justin</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>Romel</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td>Gabriel</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td>Angel</td>
+                    <td>0</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECORDS -->
+    <section id="records" class="page">
+
+        <h1 class="section-title">🥇 Récords</h1>
+
+        <div class="record">
+            <div>
+                <span class="badge">2x2 Single</span>
+                <p>Mejor tiempo</p>
+            </div>
+            <strong>--</strong>
+        </div>
+
+        <div class="record">
+            <div>
+                <span class="badge">3x3 Single</span>
+                <p>Mejor tiempo</p>
+            </div>
+            <strong>--</strong>
+        </div>
+
+        <div class="record">
+            <div>
+                <span class="badge">Pyraminx Single</span>
+                <p>Mejor tiempo</p>
+            </div>
+            <strong>--</strong>
+        </div>
+
+        <div class="record">
+            <div>
+                <span class="badge">Clock Single</span>
+                <p>Mejor tiempo</p>
+            </div>
+            <strong>--</strong>
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    🧩 Cubing 3ro "E" · Torneos internos<br>
+    Hecho para nuestra comunidad de cubing
+</footer>
+
+
+<script>
+
+function mostrar(pagina, boton) {
+
+    document.querySelectorAll('.page').forEach(function(seccion) {
+        seccion.classList.remove('active');
+    });
+
+    document.getElementById(pagina).classList.add('active');
+
+    document.querySelectorAll('nav button').forEach(function(btn) {
+        btn.classList.remove('active');
+    });
+
+    boton.classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+</script>
+
+</body>
+                      </html>
